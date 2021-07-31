@@ -1,0 +1,21 @@
+#maint-calorie .grid-y {
+  height: 500px;
+}
+
+#maint-calorie .pad-context {
+  padding-bottom: 1rem;
+}
+
+#maint-calorie .pad-context-name {
+  padding-right: 0.5rem;
+}
+
+#maint-calorie .pad-context-unit {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.inline {
+  display: inline;
+}
+/*# sourceMappingURL=styles.css.map */

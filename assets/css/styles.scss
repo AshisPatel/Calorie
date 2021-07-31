@@ -1,0 +1,26 @@
+
+#maint-calorie {
+    & .grid-y {
+        height:500px; 
+    }
+    
+    & .pad-context {
+        padding-bottom:1rem;
+
+        &-name {
+            padding-right:0.5rem;
+        }
+
+        &-unit {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem; 
+        }
+    }
+}
+
+.inline{
+    display: inline
+}
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Using Foundation for the CSS framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Calorie</title>
+</head>
+
+<body>
+    <main>
+        <!-- User input form for taking in parameters to calculate users Maintenance Calories -->
+        <form class="grid-container" id="maint-calorie">
+            <!-- Reformat this as a 2-column 3 rows for the input-number type fields? -->
+            <div class="grid-y">
+                <div class="cell small-7">
+                    <div class="grid-x">
+                        <label for="height-ft" class=" align-self-middle pad-context pad-context-name">Height:</label>
+                        <input type="number" name="height-ft" placeholder="5" class="cell small-1"/>
+                        <div class="cell shrink align-self-middle pad-context pad-context-unit">ft</div>
+                        <label for="height-in" class=""></label>
+                        <input type="number" name="height-in" placeholder="10" class="cell small-1" />
+                        <div class="cell shrink align-self-middle pad-context pad-context-unit">in</div>
+                    </div>
+
+                    <div class="grid-x">
+                        <label for="weight" class=" align-self-middle pad-context pad-context-name">Weight</label>
+                        <input type="number" name="weight" placeholder="165" class="cell small-1"/>
+                       
+                        <div class="cell shrink align-self-middle pad-context pad-context-unit">pounds</div>
+                    </div>
+
+                    <!-- This should get moved to the NEXT form -->
+                    <div class="grid-x">
+                        <label for="bodyFat" class=" align-self-middle pad-context pad-context-name">Body Fat:</label>
+                        <input type="number" name="bodyFat" placeholder="20" class="cell small-1"/>
+                       
+                        <div class="cell shrink align-self-middle pad-context pad-context-unit">%</div>
+                    </div>
+
+                    <div class="grid-x">
+                        <label for="age" class=" align-self-middle pad-context pad-context-name">Age:</label>
+                        <input type="number" name="bodyFat" placeholder="25" class="cell small-1"/>
+                       
+                        <div class="cell shrink align-self-middle pad-context pad-context-unit">years</div>
+                    </div>
+
+                    <fieldset>
+                        <legend>Assigned Biological Gender:</legend>
+                            <input type="radio" id="male" name="gender" value="male" />
+                            <label for="male">Male</label>
+        
+                            <input type="radio" id="female" name="gender" value="female" />
+                            <label for="female">Female</label>
+                    </fieldset>
+
+                </div>
+
+                <div class="cell small-2">
+                    <button type="click" class="success button">Calculate Maintenace Calories</button>
+                    <p>Your maintenance calories are: <span id="maintCalNum">2000</span></p>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
