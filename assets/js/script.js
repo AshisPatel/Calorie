@@ -8,8 +8,7 @@ const createNumberInput = function(properties,targetCol) {
     properties.forEach(function(property){
         const rowEl = document.createElement("div"); 
         rowEl.classList = "row mb-2"
-        
-        
+
         const labelEl = document.createElement("label");
         labelEl.classList = "col-sm-2 col-form-label";
         labelEl.setAttribute("for",property.name.toLowerCase());
