@@ -14,6 +14,60 @@
 <body>
     <main>
         <button id="start-btn" type="click">Start Calculating</button>
+        <!-- User input form for taking in parameters to calculate users Maintenance Calories -->
+        <form class="container" id="maint-calorie">
+            <!-- Reformat this as a 2-column 3 rows for the input-number type fields? -->
+            <fieldset class="row w-100 bg bg-info">
+                <h6>Maintenance Calorie Inputs</h6>
+                <div class="col">
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label" for="height-feet">Height:</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input type="number" label="height-feet" placeholder="5" class="w-25"/>
+                                <span class="input-group-text">ft</span>
+                                <input type="number" aria-label="height-inches" placeholder="10" class="w-25" />
+                                <span class="input-group-text">in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="weight" class="col-sm-2 col-form-label">Weight:</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input type="number" name="weight" placeholder="150" class="w-25" />
+                                <span class="input-group-text">pounds</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="age" class="col-sm-2 col-form-label">Age:</label>
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <input type="number" name="age" placeholder="25" class="w-25" />
+                                <span class="input-group-text">years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <fieldset class="row">
+                        <legend for="gender" class="col-form-label col-sm-2">Biological Gender:</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check ps-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="male" value="m" />
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="female" value="f" />
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
 
                     <div class="row">
                         <button type="click" id="cal-calc-btn" class="btn btn-success w-50">Calculate Calories</button>
@@ -22,6 +76,7 @@
                     <div class="row">
                         <p>Calculated Calories: <span id="maint-cals">2000</span></p>
                     </div>
+                </div>
             </fieldset>
         </form>
     </main>

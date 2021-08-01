@@ -115,16 +115,42 @@ const createMaintCalsForm= function() {
     colEl.classList = "col";
 
     const propertiesNum = [{name: "Height", placeholder: ["5","10"], unit: ["ft", "in"]}, {name: "Weight", placeholder: ["150"], unit: ["pounds"]}, {name: "Age", placeholder: ["25"], unit: ["years"]}];  
-
     createNumberInput(propertiesNum,colEl); 
 
     const propertiesRadio = {name: "gender", identity: ["Male", "Female"], val: ["m", "f"]};
-    
     createRadioInput(propertiesRadio,colEl,"Biological Gender"); 
 
+    const calcBtnWrapperEl = document.createElement("div");
+    calcBtnWrapperEl.classList = "row"; 
+
+    const calcBtnEl = document.createElement("button");
+    calcBtnEl.setAttribute("type", "click");
+    calcBtnEl.setAttribute("id","cal-calc-btn");
+    calcBtnEl.classList = "btn btn-success w-50";
+    calcBtnEl.textContent = "Calculate Calories"; 
+
+    calcBtnWrapperEl.appendChild(calcBtnEl);
+    colEl.appendChild(calcBtnWrapperEl); 
+
+    const pWrapperEl = document.createElement("div");
+    pWrapperEl.classList = "row"; 
+
+    const pEl = document.createElement("p");
+    pEl.textContent = "Calculated Calories: "
+
+    const numCalWrapperEl = document.createElement("span");
+    numCalWrapperEl.setAttribute("id","maint-cals");
+    let temp = 2000;
+    numCalWrapperEl.textContent = temp; 
+
+    pEl.appendChild(numCalWrapperEl);
+    pWrapperEl.appendChild(pEl);
+    colEl.appendChild(pWrapperEl); 
+   
     fieldsetEl.appendChild(colEl);
     formEl.appendChild(fieldsetEl); 
-    mainEl.appendChild(formEl); 
+    mainEl.appendChild(formEl); // Replace this with a modal 
+
 }
 
 const startBtnHandler = function(event) {
