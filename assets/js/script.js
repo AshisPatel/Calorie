@@ -5,10 +5,6 @@ let mainCalParameters = {height: "", weight: "", age: "", gender: ""};
 
 const createNumberInput = function(properties,targetCol) {
 
-    console.log(properties); 
-
-    // Select the column that is currently being generated
-
     properties.forEach(function(property){
         const rowEl = document.createElement("div"); 
         rowEl.classList = "row mb-2"
@@ -27,7 +23,9 @@ const createNumberInput = function(properties,targetCol) {
         const inputGroupEl = document.createElement("div");
         inputGroupEl.classList = "input-group";
 
-        for (let i=0; i < property.placeholder.length; i++) {
+        const numItems = property.placeholder.length; 
+
+        for (let i=0; i < numItems; i++) {
             const inputEl = document.createElement("input");
             inputEl.setAttribute("type","number");
             inputEl.setAttribute("label",property.name.toLowerCase());
@@ -51,6 +49,54 @@ const createNumberInput = function(properties,targetCol) {
 
 }
 
+const createRadioInput = function(properties,targetCol,legendName) {
+    const fieldsetEl = document.createElement("fieldset");
+    fieldsetEl.classList = "row";
+
+    const legendEl = document.createElement("legend"); 
+    legendEl.setAttribute("for",properties.name);
+    legendEl.classList = "col-form-label col-sm-2";
+    legendEl.textContent = `${legendName}:`
+
+    fieldsetEl.appendChild(legendEl); 
+
+    const radioBtnColEl = document.createElement("div");
+    radioBtnColEl.classList = "col-sm-10"; 
+
+    const radioBtnsWrapperEl = document.createElement("div");
+    radioBtnsWrapperEl.classList = "form-check ps-3";
+    
+    numRadioBtns = properties.val.length; 
+
+    for(let i=0; i < numRadioBtns; i++) {
+        const radioBtnWrapperEl = document.createElement("div");
+        radioBtnWrapperEl.classList = "form-check form-check-inline";
+        
+        const radioBtnEl = document.createElement("input");
+        radioBtnEl.classList = "form-check-input";
+        radioBtnEl.setAttribute("type","radio");
+        radioBtnEl.setAttribute("name", properties.name);
+        radioBtnEl.setAttribute("id",properties.identity[i].toLowerCase());
+        radioBtnEl.setAttribute("value", properties.val[i]); 
+
+        const labelEl = document.createElement("label");
+        labelEl.classList = "form-check-label";
+        labelEl.setAttribute("for", properties.identity[i].toLowerCase());
+        labelEl.textContent = properties.identity[i]; 
+
+        radioBtnWrapperEl.appendChild(radioBtnEl);
+        radioBtnWrapperEl.appendChild(labelEl); 
+
+        radioBtnsWrapperEl.appendChild(radioBtnWrapperEl); 
+    }
+
+    radioBtnColEl.appendChild(radioBtnsWrapperEl); 
+
+    fieldsetEl.appendChild(radioBtnColEl); 
+
+    targetCol.appendChild(fieldsetEl); 
+}
+
 const createMaintCalsForm= function() {
 
     const formEl = document.createElement("form")
@@ -68,11 +114,14 @@ const createMaintCalsForm= function() {
     const colEl = document.createElement("div"); 
     colEl.classList = "col";
 
-    // const properties = [{name:["height-ft", "height-in"], unit: ["ft", "in"]}, {name: "Weight", unit: "pounds"}, {name: "Age", unit: "years"}]; 
-    const properties = [{name: "Height", placeholder: ["5","10"], unit: ["ft", "in"]}, {name: "Weight", placeholder: ["150"], unit: ["pounds"]}, {name: "Age", placeholder: ["25"], unit: ["years"]}];  
+    const propertiesNum = [{name: "Height", placeholder: ["5","10"], unit: ["ft", "in"]}, {name: "Weight", placeholder: ["150"], unit: ["pounds"]}, {name: "Age", placeholder: ["25"], unit: ["years"]}];  
 
-    createNumberInput(properties,colEl); 
+    createNumberInput(propertiesNum,colEl); 
+
+    const propertiesRadio = {name: "gender", identity: ["Male", "Female"], val: ["m", "f"]};
     
+    createRadioInput(propertiesRadio,colEl,"Biological Gender"); 
+
     fieldsetEl.appendChild(colEl);
     formEl.appendChild(fieldsetEl); 
     mainEl.appendChild(formEl); 
