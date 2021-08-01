@@ -9,17 +9,43 @@ const createNumberInput = function(properties,targetCol) {
 
     // Select the column that is currently being generated
 
-    const rowEl = document.createElement("div"); 
-    rowEl.classList = "row"
-    rowEl.textContent = "This is an optimistic test! :)"; 
-
-    targetCol.appendChild(rowEl); 
-    console.log(targetCol); 
-
-    return(targetCol); 
     properties.forEach(function(property){
+        const rowEl = document.createElement("div"); 
+        rowEl.classList = "row"
         
-    })
+        const labelEl = document.createElement("label");
+        labelEl.classList = "col-sm-2 col-form-label";
+        labelEl.setAttribute("for",property.name.toLowerCase());
+        labelEl.textContent = `${property.name}: `
+        
+        rowEl.appendChild(labelEl);
+
+        const inputWrapEl = document.createElement("div");
+        inputWrapEl.classList = "col-sm-10";
+        
+        const inputGroupEl = document.createElement("div");
+        inputGroupEl.classList = "input-group";
+
+        const inputEl = document.createElement("input");
+        inputEl.setAttribute("type","number");
+        inputEl.setAttribute("label",property.name.toLowerCase());
+        inputEl.setAttribute("placeholder",property.placeholder);
+        inputEl.classList = "w-25";
+
+        const spanEl = document.createElement("span");
+        spanEl.classList = "input-group-text";
+        spanEl.textContent = property.unit;
+
+        inputGroupEl.appendChild(inputEl);
+        inputGroupEl.appendChild(spanEl);
+
+        inputWrapEl.appendChild(inputGroupEl);
+
+        rowEl.appendChild(inputWrapEl); 
+
+        targetCol.appendChild(rowEl); 
+    });
+
 }
 
 const createMaintCalsForm= function() {
@@ -39,7 +65,8 @@ const createMaintCalsForm= function() {
     const colEl = document.createElement("div"); 
     colEl.classList = "col";
 
-    const properties = [{name:["height-ft", "height-in"], unit: ["ft", "in"]}, {name: "Weight", unit: "pounds"}, {name: "Age", unit: "years"}];  
+    // const properties = [{name:["height-ft", "height-in"], unit: ["ft", "in"]}, {name: "Weight", unit: "pounds"}, {name: "Age", unit: "years"}]; 
+    const properties = [{name: "Height", placeholder: "5", unit: "in"}, {name: "Weight", placeholder: "150", unit: "pounds"}, {name: "Age", placeholder: "25", unit: "years"}];  
 
     createNumberInput(properties,colEl); 
     
