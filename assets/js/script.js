@@ -11,7 +11,8 @@ const createNumberInput = function(properties,targetCol) {
 
     properties.forEach(function(property){
         const rowEl = document.createElement("div"); 
-        rowEl.classList = "row"
+        rowEl.classList = "row mb-2"
+        
         
         const labelEl = document.createElement("label");
         labelEl.classList = "col-sm-2 col-form-label";
@@ -26,18 +27,20 @@ const createNumberInput = function(properties,targetCol) {
         const inputGroupEl = document.createElement("div");
         inputGroupEl.classList = "input-group";
 
-        const inputEl = document.createElement("input");
-        inputEl.setAttribute("type","number");
-        inputEl.setAttribute("label",property.name.toLowerCase());
-        inputEl.setAttribute("placeholder",property.placeholder);
-        inputEl.classList = "w-25";
+        for (let i=0; i < property.placeholder.length; i++) {
+            const inputEl = document.createElement("input");
+            inputEl.setAttribute("type","number");
+            inputEl.setAttribute("label",property.name.toLowerCase());
+            inputEl.setAttribute("placeholder",property.placeholder[i]);
+            inputEl.classList = "w-25";
+            
+            const spanEl = document.createElement("span");
+            spanEl.classList = "input-group-text";
+            spanEl.textContent = property.unit[i];
 
-        const spanEl = document.createElement("span");
-        spanEl.classList = "input-group-text";
-        spanEl.textContent = property.unit;
-
-        inputGroupEl.appendChild(inputEl);
-        inputGroupEl.appendChild(spanEl);
+            inputGroupEl.appendChild(inputEl);
+            inputGroupEl.appendChild(spanEl);
+        }
 
         inputWrapEl.appendChild(inputGroupEl);
 
@@ -66,7 +69,7 @@ const createMaintCalsForm= function() {
     colEl.classList = "col";
 
     // const properties = [{name:["height-ft", "height-in"], unit: ["ft", "in"]}, {name: "Weight", unit: "pounds"}, {name: "Age", unit: "years"}]; 
-    const properties = [{name: "Height", placeholder: "5", unit: "in"}, {name: "Weight", placeholder: "150", unit: "pounds"}, {name: "Age", placeholder: "25", unit: "years"}];  
+    const properties = [{name: "Height", placeholder: ["5","10"], unit: ["ft", "in"]}, {name: "Weight", placeholder: ["150"], unit: ["pounds"]}, {name: "Age", placeholder: ["25"], unit: ["years"]}];  
 
     createNumberInput(properties,colEl); 
     
