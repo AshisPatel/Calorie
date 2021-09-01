@@ -1,0 +1,28 @@
+{
+  "name": "Calorie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "jest": "^27.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshisPatel/Calorie.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AshisPatel/Calorie/issues"
+  },
+  "homepage": "https://github.com/AshisPatel/Calorie#readme"
+}
